@@ -17,13 +17,9 @@ There are six endpoints:
 
 ### Note on signature generation and verification endpoints
 
-In the problem description given on the handout, it is asked that signature verification is carried out using the Sign and verify endpoints. My interpretation of the verify endpoint description states that the plaintext payload should be signed to create a cipher-text signature. This should then be compared to the cipher text signature received in the POST request. I don't believe that this is the optimum solution, as most strong signature generators will use an initialisation vector in order to create different cipher text outcomes for identical text. Perhaps, I am misinterpreting the question.
-
 I have implemented this task as described using a hash function with a salt value which is written to the disk. This means cipher-text will always be the same for a given plaintext payload.
 
 As an extra, I created two more endpoints for implementing RSA signature generation and verification, which offers a more secure solution. This works by signing a payload with a private key at the signature endpoint, `signRSA`, and then decrypting the signature using the public key at the verification endpoint, `verifyRSA`. The result is compared with the plaintext payload to either verify or invalidate the key.
-
-Perhaps, this is what you were asking for in the question and I've just misread it.
 
 Let me know if there is any trouble running the project.
 
